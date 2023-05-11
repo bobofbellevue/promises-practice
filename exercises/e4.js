@@ -21,10 +21,7 @@ const second = (val) => {
  */
 
 // Refactor the following code...
-export const handlePromise = first();
-const secondPromise = handlePromise.then((val) => val);
-const final = secondPromise.then((res) => second(res));
-final.then((val) => {
+export const handlePromise = first().then((val) => val).then((res) => second(res)).then((val) => {
   console.log(val);
   return(val);
 });
@@ -35,3 +32,4 @@ final.then((val) => {
 // Once you're finished run the test with "npm run test-4"
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
+

@@ -15,9 +15,17 @@
  * Example: export const getPromise = (bool) = return <Your promise constructor code>
  */
 
-export const getPromise = () => {
-  // Your code goes here...
-};
+export function getPromise(status) {
+  const promise = new Promise((resolve, reject) => {
+    if (status) {
+      resolve('The PROMISE was RESOLVED');
+    }
+    else {
+      reject('The PROMISE was REJECTED');
+    }
+  });
+  return promise;
+}
 
 /**
  * Create a handlePromise function that follows:
@@ -28,9 +36,9 @@ export const getPromise = () => {
  * The handlePromise() function must be exported
  */
 
-export const handlePromise = () => {
-  // Your code goes here...
-};
+export const handlePromise = (promise) => {
+  return promise.then((data) => data, (reason) => 'Uh Oh');
+}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-2"

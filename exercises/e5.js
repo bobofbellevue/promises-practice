@@ -5,11 +5,11 @@
  * Create a function `attachTitle` which follows the requirements:
  * * prepends `'DR. '` to its first argument and returns the result.
  * Example: export const attachTitle = (arg) => {<Your_code>}
- *          export const Promise 
+ *          export const Promise
 */
 
-export const attachTitle = () => {
-  // Your code goes here...
+export const attachTitle = (arg) => {
+  return('DR. ' + arg);
 }
 
 /**
@@ -21,10 +21,12 @@ export const attachTitle = () => {
 */
 
 export const getPromise = () => {
-  // Your code goes here...
-
-} 
-
+  const promise = new Promise((resolve, reject) => {
+    resolve('MANHATTAN');
+  });
+  promise.then((city) => console.log(attachTitle(city)));
+  return promise;
+}
 
 
 // === TEST YOURSELF ===

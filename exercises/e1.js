@@ -1,7 +1,7 @@
 /**
  * PROMISE CONSTRUCTOR (Resolve with onFulfilled callback argument )
  * Please, make sure to read the "01 Promise-constructor.md" file in exercise-info folder before you start!
- * Create a promise with a constructor that follows the requirements:
+ * Create a promise with a constructor that follows the requirements
  * * Has a name of 'getPromise'
  * * The promise is resolved (fulfilled) with a message of 'The PROMISE was RESOLVED' in 1 second.
  * * (setTimeout function usage is required)
@@ -15,6 +15,16 @@
  */
 
 // Your code goes here
+export const getPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('The PROMISE was RESOLVED');
+  }, 1000);
+});
+
+getPromise.then((data) => {
+  console.log(data);
+  return data;
+});
 
 
 

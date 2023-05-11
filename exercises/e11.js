@@ -26,10 +26,7 @@ export const usersUrl = 'http://localhost:3000/users/';
  * Example: const getLoginList = (data) => {<Your code>}
 */
 
-const getLoginList = () => {
-  // Your code goes here...
-
-}
+const getLoginList = data => data.map((acct) => acct['login']);
 
 /**
  * @task 
@@ -38,8 +35,7 @@ const getLoginList = () => {
  * example: const getData = <node_fetch_function_call>
 */
 
-// Your code goes here ...
-const getData;
+const getData = fetch(usersUrl);
 
 /**
  * @task 
@@ -52,9 +48,16 @@ const getData;
  *  .then(<Your_logging_and_return_code>)
 */
 
-// Your code goes here ...
-export const result = getData;
-
+export const result = getData
+  .then(data => {
+      if (data.status === 200) {
+	  return data;
+      }
+  })
+  .then(data => data.json())
+  .then(data => getLoginList(data))
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"
